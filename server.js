@@ -38,7 +38,7 @@ wss.on('connection', function(ws) {
 			var old_nickname = nickname;
 			nickname = nickname_array[1];
 			var nickname_message = "Client "+old_nickname+" changed to "+nickname;
-			wsSend("nick_update", client_uuid, nickname, nickname_messaeg);
+			wsSend("nick_update", client_uuid, nickname, nickname_messaeg);               }
 		    } else {
 			wsSend("message", client_uuid, nickname, message);
 		    }
