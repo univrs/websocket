@@ -63,8 +63,8 @@ wss.on('connect', function(ws) {
 		closeSocket();
 	 });
         process.on('SIGINT', function() {
-		console.log("Closing things...\n");
-		closeSocket('Server had disconnected\n");
+		console.log('Closing things...\n');
+		closeSocket('Server had disconnected\n');
 	        process.exit();
         });
 });
