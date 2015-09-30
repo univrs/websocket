@@ -34,6 +34,38 @@ wss.on('connect', function(ws) {
         ws.on('message', function(message) {
 		if(message.indexOf('/nick') === 0) {
 		   var nickname_array = message.split(' ');    
-
+		   if(nickname_array.length >=2) {
+			var old_nickname = nickname;
+			nickname = nickname_array[1];
+			var nickname_message = "Client "+old_nickname+} changed to "+nickname;
+			wsSend("nick_update", client_uuid, nickname, nickname_messaeg);
+		    } else {
+			wsSend("message", client_uuid, nickname, message);
+		    }
+        });
+         
+        var closeSocket = function(customMessage) {
+		for(var i=0; i<clients.length; i++) {
+			if(clients[i].id == client_uuid) {
+				var disconnect_message;
+				if(customMessage){
+					disconnect_message= customMessage;
+				}else{
+				  disconnect_message = nickname + " has disconnect";
+				}
+			  wsSend("notification", client_uuid, nickname, disconnect_message);
+			  clients.splice(i,1);
+			}
+		}
+	 }
+	 
+	ws.on('close', function() {
+		closeSocket();
+	 });
+        process.on('SIGINT', function() {
+		console.log("Closing things...\n");
+		closeSocket('Server had disconnected\n");
+	        process.exit();
+        });
 });
 
