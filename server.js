@@ -9,10 +9,10 @@ function wsSend(type, client_uuid, nickname, message){
 	for( var i=0; i<clients.length; i++) {
 		var clientSocket = clients[i].ws;
 		if(clientSocket.readyState === WebSocket.OPEN) {
-		   clientSocket.send(JSON.stringfy({
-			"type": type;
-			"id"  : client_uuid;
-			"nickname": nickname;
+		   clientSocket.send(JSON.stringify({
+			"type": type,
+			"id"  : client_uuid,
+			"nickname": nickname,
 			"message": message
 		   }));
 		}
@@ -21,7 +21,7 @@ function wsSend(type, client_uuid, nickname, message){
 
 var clientIndex = 1;
 
-wss.on('connect', function(ws) {
+wss.on('connection', function(ws) {
 	var client_uuid = uuid.v4();
 	var nickname = "AnonymousUser"+clientIndex;
 	clientIndex+=1;
