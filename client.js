@@ -61,4 +61,22 @@
         </script>
 </head>
 
-
+<body lang="en">
+	<div class="vertical-center">
+	<div class="container">
+	<ul id="message" class="list-unstyled">
+	
+	</ul>
+	<hr/>
+	<form role="form" id="chat_form" onsubmit="sendMessage(); return false;">
+		<div class="form-group">
+		<input class="form-control" type="text" id="message" nam"message"
+		placeholder="Type your text here" value="" autofocus/>
+		</div>
+	<button type="button" id="send" class="btn btn-primary" onclick="sendMessage();">Send Message</button>
+	</form>
+	</div><!-- end of vertial -->
+	</div><!-- end container -->
+  <script src="http://bit.ly/cdn-bootstrap-minijs"></script>
+</body>
+</html> 
