@@ -23,7 +23,7 @@ var clientIndex = 1;
 
 wss.on('connection', function(ws) {
 	var client_uuid = uuid.v4();
-	var nickname = "AnonymousUser"+clientIndex;
+	var nickname = "User: "+clientIndex;
 	clientIndex+=1;
 	clients.push({"id": client_uuid, "ws": ws, "nickname": nickname});
 	console.log('client [%s] connected', client_uuid);
