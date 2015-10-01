@@ -10,7 +10,7 @@
 
 	<script>
 		
-	    var ws = new WebSocket("ws://admin.hennepintech.edu:8000");
+	    var ws = new WebSocket("ws://localhost:8000");
 	    var nickname = "sapent-bot";
 	    ws.onopen = function(e) {
 		console.log('Connection to server opened');
@@ -28,8 +28,8 @@
 		   preface_label = "<span class=\label label-success\">*</span>"
 		   + nickname + "</span>";
 		}
-		var message_text = "<h2>" + preface_label + "&nbsp; &nbsp;"
-		+ message + "</h2>";
+		var message_text = "<span>" + preface_label + "&nbsp; &nbsp;"
+		+ message + "</span>";
 		messageElem.innerHTML = message_text;
 		messages.appendChild(messageElem);
 	    }
