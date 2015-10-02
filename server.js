@@ -51,7 +51,7 @@ wss.on('connection', function(ws) {
 				if(customMessage){
 					disconnect_message= customMessage;
 				}else{
-				  disconnect_message = nickname + " has disconnect";
+				  disconnect_message = nickname + " has disconnected";
 				}
 			  wsSend("notification", client_uuid, nickname, disconnect_message);
 			  clients.splice(i,1);
