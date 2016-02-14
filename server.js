@@ -46,7 +46,8 @@ wss.on('connection', function(ws) {
 		         	
 		         } else {
 		            
-		            wsSend("message", client_uuid, nickname, msg.message); 
+		            // wsSend("message", client_uuid, nickname, msg.message); 
+		            wsSend("message", client_uuid, nickname, msg); 
 		         }
         });
          
