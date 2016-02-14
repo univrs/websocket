@@ -26,7 +26,8 @@
 	        	var msg = data.message;
 	        	var first = msg.first;
 	        	var last = msg.last;
-	        	appendLog(data.type, data.nickname, msg.message, first, last); // appendLog()
+	        	var email = msg.email;
+	        	appendLog(data.type, data.nickname, msg.message, first, last, email); // appendLog()
 	        	console.log("ID: [%s] = %s", data.id, msg.message);
 	        	
 	     	} else {
@@ -42,7 +43,7 @@
 		  console.log("Connection closed");
 	   }
 	   
-	   	function appendLog(type, nickname, message, first, last) {
+	   	function appendLog(type, nickname, message, first, last, email) {
 	     	var messages = document.getElementById('messages');
 	     	var messageElem = document.createElement("li");
                 $(messageElem).addClass("clearme"); 
@@ -52,7 +53,7 @@
 		    } else if (type === 'nick_update') {
 		       preface_label = "<span class=\"label label-warning\">*</span>";
 		    } else if (type === 'message') {
-               preface_label = "<span class=\label label-success\">*</span>" + nickname + "[first: " + first + " ]</span>";
+               preface_label = "<span class=\label label-success\">*</span>" + nickname + "[ first: " + first + ", last: " + last + " , email: " + email + "]</span>";
 	     	} else {
 		       preface_label = "<span class=\label label-success\">*</span>" + nickname + "</span>";
 	     	}
