@@ -11,9 +11,7 @@
 	<script>
 		
 	    var ws = new WebSocket("ws://joymonk.com:8080");
-	   
 	    var nickname = "sapent-bot";
-
 	    ws.onopen = function(e) {
 		console.log('Connection to server opened');
 	    }
@@ -77,10 +75,12 @@
 			obj.message = messageField.value; 
 			//ws.send(messageField.value);  //  sending here!
 			 ws.send(JSON.stringify(obj));
-			// ws.send(obj.message);
 		}
 		    messageField.value = '';
 		    messageField.focus();
+		   first.value = '';
+		   last.value = '';
+		   email.value = '';
 	   }
 		  
            function disconnect() {
