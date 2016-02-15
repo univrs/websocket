@@ -51,7 +51,7 @@
 		    } else if (type === 'nick_update') {
 		       preface_label = "<span class=\"label label-warning\">*</span>";
 		    } else if (type === 'message') {
-               preface_label = "<span class=\label label-success\">*</span>" + nickname + "[ first: " + first + ", last: " + last + " , email: " + email + "]</span>";
+               preface_label = "<span class=\label label-success\">*</span>" + nickname + " [ first: " + first + ", last: " + last + " , email: " + email + "]</span>";
 	     	} else {
 		       preface_label = "<span class=\label label-success\">*</span>" + nickname + "</span>";
 	     	}
@@ -103,11 +103,11 @@
 		<div class="form-group">
 		<input class="form-control" type="text" id="message" name="message"
 		placeholder="Type your text here" value="" autofocus/></div>
-		<span><input type="text" id="first" name="first"
+		<span><input class="form-control" type="text" id="first" name="first"
 		placeholder="Type your first name" value="" />
-		<input  type="text" id="last" name="last"
+		<input  class="form-control" type="text" id="last" name="last"
 		placeholder="Type your last name" value="" />
-		<input  type="text" id="email" name="email" placeholder="Type your email here" value="" autofocus/>
+		<input  class="form-control" type="text" id="email" name="email" placeholder="Type your email here" value="" autofocus/>
 		</span><br/>
 	<div class="form-group"><br/>
        <button type="button" id="send" class="btn btn-primary" onclick="sendMessage();">Send Message</button><button type="button" id="clear" class="btn btn-default" onclick="clearMessages(); return false;">Clear</button>
